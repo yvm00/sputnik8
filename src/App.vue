@@ -1,6 +1,7 @@
 <template>
-  <div class="app">
+  <div class="wrapper">
     <navbar/>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -13,15 +14,19 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '@/assets/scss/fonts.scss';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.app {
-  display: flex;
-  justify-content: center;
+.wrapper {
+  margin: 0 auto;
+  max-width:1000px;
   padding-top: 50px;
+  text-align: center;
+  font-family: "PT Sans Caption", sans-serif;
 }
 </style>
