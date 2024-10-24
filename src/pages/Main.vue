@@ -21,17 +21,24 @@ export default {
     },
     methods: {
         async fetchTours(){  
-            try{
-                const options = {
-                method: "GET",
-                url: "http://localhost:8080/",
-                };
-                const response = await axios.request(options)
-                this.tours = response.data;
-            }     
-            catch(error) {
-                console.log(error);
-            };
+                // const options = {
+                // method: "GET",
+                // url: "https://jsonplaceholder.typicode.com/posts",
+                // };
+                const res = await fetch("https://api.sputnik8.com/v1/products?api_key=873fa71c061b0c36d9ad7e47ec3635d9&username=frontend@sputnik8.com")
+                .then((response)  => response.json())
+                .then((data) => {
+                    this.tours = data
+                })
+
+                // return new Response(JSON.stringify(res), {
+                //     headers: {
+                //     'Access-Control-Allow-Origin': '*'
+                //     }
+                // });
+                .catch((error)=>{
+                    console.log(error);
+                });
         }
     }
 }

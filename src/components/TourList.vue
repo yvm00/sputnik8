@@ -1,5 +1,5 @@
 <template>
-    <div v-if="tours.length > 0">
+    <div class="tours" v-if="tours.length > 0">
         <tour-item 
              v-for="tour in tours"
              :tour="tour"
@@ -26,5 +26,10 @@ export default{
 </script>
 
 <style scoped>
-
+.tours{
+    display: flex;
+    gap: 10px; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 </style>

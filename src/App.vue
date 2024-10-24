@@ -24,7 +24,7 @@ export default {
 }
 .wrapper {
   margin: 0 auto;
-  max-width:1000px;
+  max-width:1100px;
   padding-top: 50px;
   text-align: center;
   font-family: "PT Sans Caption", sans-serif;
