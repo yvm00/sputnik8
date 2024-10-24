@@ -11,10 +11,10 @@
 
 <script>
 export default {
-    name: 'my-select',
+    name: 'drop-down',
     props: {
         modelValue: {
-            type: Number
+            type: [String, Number]
         },
         options: {
             type: Array,

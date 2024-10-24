@@ -4,10 +4,7 @@
              v-for="tour in tours"
              :tour="tour"
         />
-    </div>    
-    <div v-else>
-        <p>Пусто</p>
-    </div>
+    </div> 
     
 </template>
 
@@ -30,6 +27,5 @@ export default{
     display: flex;
     gap: 10px; 
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 </style>

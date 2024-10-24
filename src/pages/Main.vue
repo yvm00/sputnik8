@@ -1,18 +1,26 @@
 <template>
     <div>
         <h1>Экскурсии по всему миру</h1>
-        <!-- <select :value="id" @change="changeOption">
-            <option disabled value="">Выберите город</option>
-            <option v-for="city in cities" :key="city.value" :value="city.value">
-                {{ city.name }}
-            </option>
-        </select> -->
-        <my-select           
-            v-model="selectedSort"
-            :options="cities"
-        />
-        <tour-list :tours="sortedTours"/>
-        <button @click="fetchTours">tours</button>
+        <div class="filters">
+            <input-field
+                v-model="searchSort"
+            />
+            <drop-down           
+                v-model="selectedSort"
+                :options="cities"
+            />
+        </div>
+       
+        <div >
+            <tour-list :tours="searchTours"/>
+            <div v-if="searchTours.length == 0">
+                <p>ничего нет</p>
+                <button @click="resetFilters">
+                    Сбросить фильтры
+                </button>
+            </div>
+        </div>
+        
         
     </div>
     
@@ -21,6 +29,7 @@
 <script>
 import axios from 'axios';
 import TourList from "@/components/TourList.vue";
+
 export default {
     components: {
         TourList
@@ -30,20 +39,15 @@ export default {
             tours: [],
             cities: [],
             selectedSort: '',
+            searchSort: '',
         }
     },
-    methods: {
-        // getId(){
-        //     this.cities.forEach((city) => {
-        //         this.cityId = city.id;
-        //         this.cityName = city.name;
-        //     })
-        //     console.log(cityId, cityName )
-            
-        // },
-        try(){
-            console.log(this.selectedSort)
+    methods: {      
+        resetFilters(){
+            this.selectedSort = '';
+            this.searchSort = ''
         },
+
         async fetchTours(){  
                 // const options = {
                 // method: "GET",
@@ -86,13 +90,31 @@ export default {
                 }
             })
             return sorted
-        }       
+        },
+
+        searchTours(){
+            if (this.searchSort.length !== 0 ){
+                if (this.selectedSort.length > 0){
+                    return this.sortedTours.filter(tour => tour.title.includes(this.searchSort))
+                }
+                else{
+                    return this.tours.filter(tour => tour.title.includes(this.searchSort))
+                }
+            } 
+            else {
+                return 0
+            }         
+            
+        }
+
     },
 
 }
 </script>
 
 <style lang="scss" scoped>
-
+.filters{
+    margin-top: 30px;
+}
 
 </style>
