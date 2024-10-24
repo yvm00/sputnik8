@@ -1,10 +1,15 @@
 import router from "@/router/router"
+import components from "@/components/UI"
+
 import { createApp } from 'vue'
 import App from './App.vue'
 
-
 const app = createApp(App)
 
-app.use(router)
+components.forEach(component => {
+    app.component(component.name, component)
+})
 
-app.mount('#app')
+app
+    .use(router)
+    .mount('#app')
