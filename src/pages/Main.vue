@@ -4,8 +4,6 @@
         <tour-list :tours="tours"/>
         <button @click="fetchTours">tours</button>
     </div>
-   
-
     
 </template>
 
@@ -18,18 +16,22 @@ export default {
     },
     data(){
         return {
-            tours: []
+            tours: [ ]
         }
     },
     methods: {
-        async fetchTours(){
+        async fetchTours(){  
             try{
-                const response = await axios.get('https://api.sputnik8.com/v1/products?api_key=873fa71c061b0c36d9ad7e47ec3635d9&username=frontend@sputnik8.com');
+                const options = {
+                method: "GET",
+                url: "http://localhost:8080/",
+                };
+                const response = await axios.request(options)
                 this.tours = response.data;
-            }
-            catch (e){
-                alert('error')
-            }
+            }     
+            catch(error) {
+                console.log(error);
+            };
         }
     }
 }

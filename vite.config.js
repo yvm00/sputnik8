@@ -19,6 +19,10 @@ export default defineConfig({
         api: 'modern-compiler' // or "modern"
       }
     }
-  }
+  },
+  routes: { 
+    '/': { prerender: true }, 
+    '/*': { cors: true } 
+  } 
 
 })

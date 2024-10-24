@@ -1,8 +1,10 @@
 <template>
     <div>
-        <p>{{ tour.id }}</p>
         <p>{{ tour.title }}</p>
-        <p>{{ tour.body }}</p>
+        <!-- <p>{{ tour.activity_type }}</p>
+        <p>{{ tour.title }}</p>
+        <p>{{ tour.customers_review_rating }}</p>
+        <p>{{ tour.order_options.order_lines.price }}</p> -->
     </div>
 </template>
 
