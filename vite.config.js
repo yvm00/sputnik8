@@ -8,9 +8,14 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
+  define: {
+    "process.env.DEBUG": false,
+    "window.global": {},
+  },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      "./runtimeConfig": "./runtimeConfig.browser",
     }
   },
   css: {
