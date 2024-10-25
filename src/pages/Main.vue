@@ -1,9 +1,10 @@
 <template>
     <div>
         <h1>Экскурсии по всему миру</h1>
-        <div class="filters">
+        <div class="m-30">
             <input-field
                 v-model="searchSort"
+                @delete="deleteSearch"
             />
             <drop-down           
                 v-model="selectedSort"
@@ -44,7 +45,10 @@ export default {
     },
     methods: {      
         resetFilters(){
-            this.selectedSort = '';
+            this.selectedSort = ''
+            this.searchSort = ''
+        },
+        deleteSearch(){
             this.searchSort = ''
         },
 
@@ -113,8 +117,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.filters{
-    margin-top: 30px;
-}
+
 
 </style>

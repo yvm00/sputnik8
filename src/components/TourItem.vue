@@ -69,7 +69,4 @@ export default{
         color: lighten($color-main, 30%); 
     }
 }
-.mt-10{
-    margin-top: 10px;
-}
 </style>

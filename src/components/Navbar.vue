@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="m-20">
     <svg xmlns="http://www.w3.org/2000/svg" width="155" height="24" viewBox="0 0 155 24">
     <g fill="none" fill-rule="evenodd">
         <g fill-rule="nonzero">

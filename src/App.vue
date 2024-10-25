@@ -25,8 +25,20 @@ export default {
 .wrapper {
   margin: 0 auto;
   max-width:1100px;
-  padding-top: 50px;
+  padding-top: 30px;
   text-align: center;
   font-family: "PT Sans Caption", sans-serif;
+}
+.mt-10{
+  margin-top: 10px;
+}
+.m-20{
+  margin: 20px;
+}
+.m-30{
+  margin: 40px;
+}
+.ml-30{
+  margin-left: 30px;
 }
 </style>

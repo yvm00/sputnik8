@@ -1,5 +1,5 @@
 <template>
-    <div class="tours" v-if="tours.length > 0">
+    <div class="tours m-20" v-if="tours.length > 0">
         <tour-item 
              v-for="tour in tours"
              :tour="tour"

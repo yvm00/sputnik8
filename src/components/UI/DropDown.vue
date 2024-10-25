@@ -1,6 +1,6 @@
 <template>
-    <select :value="modelValue" @change="changeOption">
-        <option disabled value="">Выберите город</option>
+    <select class="dropdown ml-30" :value="modelValue" @change="changeOption">
+        <option disabled value="">Выбрать город</option>
         <option v-for="option in options" :key="option.id" :value="option.id">
             {{ option.name }}
         </option>
@@ -33,5 +33,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/variables.scss';
+.dropdown{
+    border: 1px solid $color-light;
+    color: $color-light; 
+    padding: 7px 10px;  
+    width: 220px;
 
+    &:focus-visible {
+        outline:none;
+        border: 1px solid $color-focus;
+    }
+    
+}
 </style>
