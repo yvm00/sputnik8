@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "vite": "vite",
-    "dev": "concurrently --kill-others \"npm run vite\" \"npm run server\" \"npm run serverCity\"",
-    "server": "node server.js",
-    "serverCity": "node serverCity.js",
+    "dev": "vite",
+    "server": "concurrently --kill-others \"npm run vite\" \"npm run server\" \"npm run serverCity\"",
+    "serv": "node server.js",
+    "servCity": "node serverCity.js",
     "build": "vite build",
     "preview": "vite preview"
   },

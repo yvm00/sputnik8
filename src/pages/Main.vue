@@ -49,11 +49,7 @@ export default {
         deleteSearch(){
             this.searchSort = ''
         },
-        async fetchTours(){  
-                // const options = {
-                // method: "GET",
-                // url: "https://jsonplaceholder.typicode.com/posts",
-                // };
+        async fetchTours(){
                 const res = await fetch("https://api.sputnik8.com/v1/products?api_key=873fa71c061b0c36d9ad7e47ec3635d9&username=frontend@sputnik8.com")
                 .then((response)  => response.json())
                 .then((data) => {
@@ -63,11 +59,7 @@ export default {
                     console.log(error);
                 });
         },
-        async fetchCities(){  
-                // const options = {
-                // method: "GET",
-                // url: "https://jsonplaceholder.typicode.com/posts",
-                // };
+        async fetchCities(){
                 const res = await fetch("https://api.sputnik8.com/v1/cities?api_key=873fa71c061b0c36d9ad7e47ec3635d9&username=frontend@sputnik8.com")
                 .then((response)  => response.json())
                 .then((data) => {
