@@ -36,7 +36,10 @@ export default {
   margin: 20px;
 }
 .m-30{
-  margin: 40px;
+  margin: 30px;
+}
+.p-30{
+  padding: 30px;
 }
 .ml-30{
   margin-left: 30px;

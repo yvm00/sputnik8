@@ -1,5 +1,5 @@
 <template>
-    <form class="search">
+    <form class="search m-20">
         <input ref="input" class="search__input" :value="modelValue" @input="updateInput" placeholder="Введите название экскурсии" type="text">    
         <button @click.prevent="$emit('delete', '')" class="search__btn">x</button>
     </form>

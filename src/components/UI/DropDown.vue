@@ -1,5 +1,5 @@
 <template>
-    <select class="dropdown ml-30" :value="modelValue" @change="changeOption">
+    <select class="dropdown m-20 " :value="modelValue" @change="changeOption">
         <option disabled value="">Выбрать город</option>
         <option v-for="option in options" :key="option.id" :value="option.id">
             {{ option.name }}

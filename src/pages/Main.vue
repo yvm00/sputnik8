@@ -1,8 +1,8 @@
 <template>
     <div>
-        <h1>Экскурсии по всему миру</h1>
-        <div class="m-30">
-            <input-field
+        <h1 class="m-20">Экскурсии по всему миру</h1>
+        <div class="filter m-30">
+             <input-field
                 v-model="searchSort"
                 @delete="deleteSearch"
             />
@@ -10,17 +10,21 @@
                 v-model="selectedSort"
                 :options="cities"
             />
+        </div>      
+        <div  v-if="this.selectedSort.length > 0 || this.searchSort.length > 0 ">
+                <tour-list :tours="searchTours"/>
+                <div class="reset p-30" v-if="searchTours.length == 0">
+                    <p>Поиск не дал результатов</p>
+                    <my-button class=" m-30" @click="resetFilters">
+                        Сбросить фильтры
+                    </my-button>
+                </div>
         </div>
+           
+           
+     
        
-        <div >
-            <tour-list :tours="searchTours"/>
-            <div v-if="searchTours.length == 0">
-                <p>ничего нет</p>
-                <button @click="resetFilters">
-                    Сбросить фильтры
-                </button>
-            </div>
-        </div>
+        
         
         
     </div>
@@ -97,18 +101,15 @@ export default {
         },
 
         searchTours(){
-            if (this.searchSort.length !== 0 ){
-                if (this.selectedSort.length > 0){
-                    return this.sortedTours.filter(tour => tour.title.includes(this.searchSort))
-                }
-                else{
-                    return this.tours.filter(tour => tour.title.includes(this.searchSort))
-                }
-            } 
-            else {
-                return 0
-            }         
-            
+            let searched = ''            
+            console.log(this.searchSort)                
+            if(this.selectedSort.length > 0){
+                searched = this.sortedTours.filter(tour => tour.title.includes(this.searchSort))
+            }
+            else if (this.searchSort.length > 0){
+                searched = this.tours.filter(tour => tour.title.includes(this.searchSort))
+            }
+            return searched           
         }
 
     },
@@ -117,6 +118,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.reset{
+    margin-top:10%;
+}
 
 </style>
