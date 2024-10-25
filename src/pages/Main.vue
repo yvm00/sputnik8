@@ -49,33 +49,61 @@ export default {
         deleteSearch(){
             this.searchSort = ''
         },
-        async fetchTours(){ 
-            try{
-                const options = {
-                method: "GET",
-                url: "http://localhost:8080/",
-                };
-                const  res = await axios.request(options)
-                this.tours = res.data;
-            } 
-            catch(error) {
-                console.log(error);
-            };
+        async fetchTours(){  
+                // const options = {
+                // method: "GET",
+                // url: "https://jsonplaceholder.typicode.com/posts",
+                // };
+                const res = await fetch("https://api.sputnik8.com/v1/products?api_key=873fa71c061b0c36d9ad7e47ec3635d9&username=frontend@sputnik8.com")
+                .then((response)  => response.json())
+                .then((data) => {
+                    this.tours = data
+                })
+                .catch((error)=>{
+                    console.log(error);
+                });
         },
         async fetchCities(){  
-            try{
-                const options = {
-                method: "GET",
-                url: "http://localhost:8081/",
-                };
-                const res = await axios.request(options)
-                this.cities = res.data;
-            } 
-            catch(error) {
-                console.log(error);
-            };
-            
+                // const options = {
+                // method: "GET",
+                // url: "https://jsonplaceholder.typicode.com/posts",
+                // };
+                const res = await fetch("https://api.sputnik8.com/v1/cities?api_key=873fa71c061b0c36d9ad7e47ec3635d9&username=frontend@sputnik8.com")
+                .then((response)  => response.json())
+                .then((data) => {
+                    this.cities = data
+                })
+                .catch((error)=>{
+                    console.log(error);
+                });
         },       
+        // async fetchTours(){ 
+        //     try{
+        //         const options = {
+        //         method: "GET",
+        //         url: "http://localhost:8080/",
+        //         };
+        //         const  res = await axios.request(options)
+        //         this.tours = res.data;
+        //     } 
+        //     catch(error) {
+        //         console.log(error);
+        //     };
+        // },
+        // async fetchCities(){  
+        //     try{
+        //         const options = {
+        //         method: "GET",
+        //         url: "http://localhost:8081/",
+        //         };
+        //         const res = await axios.request(options)
+        //         this.cities = res.data;
+        //     } 
+        //     catch(error) {
+        //         console.log(error);
+        //     };
+            
+        // },       
     },
     mounted(){
         this.fetchCities()
