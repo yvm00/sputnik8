@@ -4,8 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "vite": "vite",
+    "dev": "concurrently --kill-others \"npm run vite\" \"npm run server\" \"npm run serverCity\"",
     "server": "node server.js",
+    "serverCity": "node serverCity.js",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -19,7 +21,10 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",
+    "concurrently": "^9.0.1",
+    "npm-run-all": "^4.1.5",
     "sass": "^1.80.3",
+    "vercel": "^37.12.1",
     "vite": "^5.4.8"
   }
 }

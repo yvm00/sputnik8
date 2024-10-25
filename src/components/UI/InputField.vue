@@ -16,11 +16,7 @@ export default {
     methods: {
         updateInput(event){
             this.$emit('update:modelValue', event.target.value)
-        },
-        // delete(event){
-        //     console.log(this.modelValue)
-        //     this.modelValue = "";
-        // }
+        }
     }
 }
 </script>
@@ -33,9 +29,10 @@ export default {
     border: 1px solid $color-light;
     padding: 7px 10px; 
     width: 220px;
-        &:focus {
+    cursor: pointer;
+        &:focus-within{
             border: 1px solid $color-focus !important;
-        }     
+        }
         &__btn{
             color: $color-light;
             background-color: transparent;
@@ -49,7 +46,7 @@ export default {
                 }
                 &::placeholder{
                     color: $color-light;
-                } 
+                }     
         }
            
 }

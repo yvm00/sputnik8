@@ -39,6 +39,7 @@ export default {
     color: $color-light; 
     padding: 7px 10px;  
     width: 220px;
+    cursor: pointer;
 
     &:focus-visible {
         outline:none;

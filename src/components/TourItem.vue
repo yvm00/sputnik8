@@ -9,7 +9,6 @@
                 ({{ tour.reviews}}) 
             </span>
         </div>
-        <p>{{ tour.city_slug }}</p>
         <p class="tour__title">{{ tour.title }}</p>     
         <div class="tour__price mt-10">
             <p>от {{ roundedPrice }} ₽</p>

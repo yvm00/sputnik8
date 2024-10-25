@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1 class="m-20">Экскурсии по всему миру</h1>
-        <div class="filter m-30">
+        <div class="m-30">
              <input-field
                 v-model="searchSort"
                 @delete="deleteSearch"
@@ -10,7 +10,8 @@
                 v-model="selectedSort"
                 :options="cities"
             />
-        </div>      
+        </div>    
+
         <div  v-if="this.selectedSort.length > 0 || this.searchSort.length > 0 ">
                 <tour-list :tours="searchTours"/>
                 <div class="reset p-30" v-if="searchTours.length == 0">
@@ -19,14 +20,7 @@
                         Сбросить фильтры
                     </my-button>
                 </div>
-        </div>
-           
-           
-     
-       
-        
-        
-        
+        </div>       
     </div>
     
 </template>
@@ -55,34 +49,32 @@ export default {
         deleteSearch(){
             this.searchSort = ''
         },
-
-        async fetchTours(){  
-                // const options = {
-                // method: "GET",
-                // url: "https://jsonplaceholder.typicode.com/posts",
-                // };
-                const res = await fetch("https://api.sputnik8.com/v1/products?api_key=873fa71c061b0c36d9ad7e47ec3635d9&username=frontend@sputnik8.com")
-                .then((response)  => response.json())
-                .then((data) => {
-                    this.tours = data
-                })
-                .catch((error)=>{
-                    console.log(error);
-                });
+        async fetchTours(){ 
+            try{
+                const options = {
+                method: "GET",
+                url: "http://localhost:8080/",
+                };
+                const  res = await axios.request(options)
+                this.tours = res.data;
+            } 
+            catch(error) {
+                console.log(error);
+            };
         },
         async fetchCities(){  
-                // const options = {
-                // method: "GET",
-                // url: "https://jsonplaceholder.typicode.com/posts",
-                // };
-                const res = await fetch("https://api.sputnik8.com/v1/cities?api_key=873fa71c061b0c36d9ad7e47ec3635d9&username=frontend@sputnik8.com")
-                .then((response)  => response.json())
-                .then((data) => {
-                    this.cities = data
-                })
-                .catch((error)=>{
-                    console.log(error);
-                });
+            try{
+                const options = {
+                method: "GET",
+                url: "http://localhost:8081/",
+                };
+                const res = await axios.request(options)
+                this.cities = res.data;
+            } 
+            catch(error) {
+                console.log(error);
+            };
+            
         },       
     },
     mounted(){

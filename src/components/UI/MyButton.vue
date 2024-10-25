@@ -18,6 +18,7 @@ export default {
     color: $color-btn-text;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
     &:hover{
         background-color: lighten($color-btn, 30%); 
     }
