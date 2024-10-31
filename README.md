@@ -1,6 +1,5 @@
 <p align="center">
   <img style="width: 15%" src="/src/assets/logo.png">
-  <h2 align="center"><b>Тестовое задание</b></h2>
    <p align="center">
           <a align="center" href="https://sputnik8-opal.vercel.app/">посмотреть демо</a>
        <br />
